@@ -10,38 +10,60 @@ set wildmode=longest:full,full
 " arrows and h/l move to next line at end of line
 set whichwrap+=<,>,[,],h,l
 
+" turn on line numbering
+set nu
+
 " C-s to save, may not work in all terminals
 nnoremap <C-s> :w<CR>
 nnoremap <Leader><C-s> :write
 inoremap <C-s> <C-o>:w<CR>
 
+" Ctrl+a to highlight all text
 nnoremap <C-a> ggVG
 vnoremap <C-a> <Esc>ggVG
 inoremap <C-a> <Esc>ggVG
 
+" Ctrl+z to undo, ctrl+y to redo
 nnoremap <C-z> u
 inoremap <C-z> <C-o>u
 vnoremap <C-z> <Esc>u
 noremap <C-y> <C-r>
+inoremap <C-y> <C-o><C-r>
 
+" Ctrl+c to copy to clipboard
 vnoremap <C-c> "+y
-
+" Ctrl+v to paste from clipboard
 noremap <C-v> "+p
 inoremap <C-v> "+p
+" <Space>y to copy to clipboard, <Space>p to paste from clipboard, <Space>d to
+" cut to clipboard
+noremap <Leader>y "+y
+noremap <Leader>d "+d
+noremap <Leader>p "+p
+" <Space>Y to copy to end of line to clipboard (Y yank to end of line)
+noremap <Leader>Y "+y$
+noremap Y y$
+" <Space>D to cut to end of line to clipboard
+noremap <Leader>D "+D
+" <Space>P to paste before cursor from clipboard
+noremap <Leader>P "+P
 
+" Ctrl+f to find
 nnoremap <C-f> /
 inoremap <C-f> <Esc>/
 vnoremap <C-f> <Esc>/
 
+" Ctrl+t for a new tab, Ctrl+w to quit
 noremap <C-t> :tabnew<CR>
 noremap <C-w> :q<CR>
 inoremap <C-w> <C-o>:q<CR>
 noremap <C-d> <C-w>
 
+" Backspace works in normal and visual mode
 nnoremap <BS> "_d<Left>
 vnoremap <BS> "_d
 
-"remap all  letter keys to begin inserting in visual/normal mode
+"remap all  letter keys to begin inserting in visual/normal mode. To remove this (recommended) put your cursor at the beginning of this line (type 0) then type d4} to delete 4 paragraphs
 noremap q iq
 noremap w iw
 noremap e ie
@@ -156,5 +178,5 @@ vnoremap B cB
 vnoremap N cN
 vnoremap M cM
 
-
+" Start vim in insert mode (no forgetting to enter insert mode)
 startinsert

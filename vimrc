@@ -63,7 +63,7 @@ noremap <C-d> <C-w>
 nnoremap <BS> "_d<Left>
 vnoremap <BS> "_d
 
-"remap all  letter keys to begin inserting in visual/normal mode. To remove this (recommended) put your cursor at the beginning of this line (type 0) then type d4} to delete 4 paragraphs
+"remap all  letter keys to begin inserting in visual/normal mode. To remove this (recommended) put your cursor at the beginning of this line (type 0) then type :norm d4}<Enter> to delete 4 paragraphs. In order for changes to take effect you need to restart vim
 noremap q iq
 noremap w iw
 noremap e ie
